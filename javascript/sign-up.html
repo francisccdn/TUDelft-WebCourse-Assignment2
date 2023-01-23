@@ -22,24 +22,64 @@
       <div class ='signUpBox'>
         <h1>Sign up</h1>
         <hr>
-        <form id="signupform">
-          <input type="text" class="soinputfield" placeholder="Username" required>
-          <input type="password" class="soinputfield" placeholder="Password">
-          <input type="text" class="soinputfield" placeholder="Name" required>
-          <input type="text" class="soinputfield" placeholder="Address" required>
-          <input type="text" class="soinputfield" placeholder="Country" required>
-          <input type="text" class="soinputfield" placeholder="ZIP code" required>
-          <input type="text" class="soinputfield" placeholder="Email" required>
-          <input type="text" class="soinputfield" placeholder="Sex" required>
-          <input type="text" class="soinputfield" placeholder="Language" required>
-          <input type="text" class="soinputfield" placeholder="Bio">
-          <input type="text" class="soinputfield" placeholder="Reason of use">
-          <input type="text" class="soinputfield" placeholder="A fun joke">
+        <form action="./index.html" id="signupform">
+          <div id="sign-up-inputs">
+            <div>
+              <input type="text" class="soinputfield" placeholder="Username">
+              <p id="Username-msg"></p>
+            </div>
+            <div>
+              <input type="password" class="soinputfield" placeholder="Password">
+              <p id="Password-msg"></p>
+            </div>
+            <div>
+              <input type="text" class="soinputfield" placeholder="Name">
+              <p id="Name-msg"></p>
+            </div>
+            <div>
+              <input type="text" class="soinputfield" placeholder="Address">
+              <p id="Address-msg"></p>
+            </div>
+            <div>
+              <input type="text" class="soinputfield" placeholder="Country">
+              <p id="Country-msg"></p>
+            </div>
+            <div>
+              <input type="text" class="soinputfield" placeholder="ZIP code">
+              <p id="ZIP code-msg"></p>
+            </div>
+            <div>
+              <input type="text" class="soinputfield" placeholder="Email">
+              <p id="Email-msg"></p>
+            </div>
+            <div>
+              <input type="text" class="soinputfield" placeholder="Sex">
+              <p id="Sex-msg"></p>
+            </div>
+            <div>
+              <input type="text" class="soinputfield" placeholder="Language">
+              <p id="Language-msg"></p>
+            </div>
+            <div>
+              <input type="text" class="soinputfield" placeholder="Bio">
+              <p id="Bio-msg"></p>
+            </div>
+            <div>
+              <input type="text" class="soinputfield" placeholder="Reason of use">
+              <p id="Reason of use-msg"></p>
+            </div>
+            <div>
+              <input type="text" class="soinputfield" placeholder="A fun joke">
+              <p id="A fun joke-msg"></p>
+            </div>
+          </div>
+          
+          <button type = 'submit' class="submitButton">Let's go!</button>
         </form>
-        
-        <button type = 'submit' class="submitButton">Let's go!</button>
         
       </div>
     </div>
+
+    <script src="form-validation.js"></script>
 </body>
 </html>
