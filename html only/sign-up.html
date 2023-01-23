@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SMART Goals</title>
+</head>
+<link rel="stylesheet" href="style.css">
+<body>
+    <!--Header-->
+    <div id="header" class="dark-bg">
+      <h1 id="header-title" class="left-margin">SMART Goals</h1>
+      <div>
+        <a href="./index.html">
+          <img class="header-icon" src="./resources/icons/home-icon.png">
+        </a>
+      </div>
+    </div>    
+    <!--sign up form-->
+    <div id="signUpPage">
+      <div class ='signUpBox'>
+        <h1>Sign up</h1>
+        <hr>
+        <form id="signupform">
+          <div id="sign-up-inputs">
+
+            <label for="username"></label>
+            <input type="text" class = 'soinputfield' id='username' placeholder="Username" required minlength="5" maxlength="12"> <!--cannot check for 'starts with capital letter' and 'ends with a number or special character'-->
+            
+            <label for="password"></label>           
+            <input type="password" class="soinputfield" placeholder="Password" required minlength="12" id="password"> <!--cannot implement 'but 14 or more is better', cannot implement 'should not be a word from a dictionary or an existing name'-->
+            
+            <label for="name"></label>    
+            <input type="text" class="soinputfield" placeholder="Name" required id="name"> <!--cannot implement "only contains letters from the alphabet"-->
+            
+            <label for="address"></label>
+            <input type="text" class="soinputfield" placeholder="Address" id="address">
+            
+            <label for="country"></label>  
+            <input type="text" class="soinputfield" placeholder="Country" required id="country">
+            
+            <label for="ZIP-code"></label>  
+            <input type="text" class="soinputfield" placeholder="ZIP code" id="ZIP-code"> <!--cannot recognize zip code style-->
+            
+            <label for="email"></label>    
+            <input type="email" class="soinputfield" placeholder="Email" required id="email">
+            
+            <label for="sex"></label>
+            <input type="text" class="soinputfield" placeholder="Sex" required id="sex">
+            
+            <label for="language"></label>     
+            <input type="text" class="soinputfield" placeholder="Language" required id="language">
+            
+            <label for="bio"></label>
+            <input type="text" class="soinputfield" placeholder="Bio" id="bio">
+            
+            <label for="reason-of-use"></label>    
+            <input type="text" class="soinputfield" placeholder="Reason of use" id="reason-of-use">
+            
+            <label for="joke"></label>
+            <input type="text" class="soinputfield" placeholder="A fun joke" id="joke">
+            
+          </div>
+            
+          <button type = 'submit' class="submitButton">Let's go!</button>
+          </form>
+        
+      </div>
+    </div>
+</body>
+</html>

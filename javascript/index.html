@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8" />
+    <title>SMART Goals</title>
+  </head>
+  <link rel="stylesheet" href="style.css" />
+  <body>
+    <!--Header-->
+    <div id="header" class="dark-bg">
+      <h1 id="header-title" class="left-margin">SMART Goals</h1>
+      <div>
+        <a href="./index.html">
+          <img class="header-icon" src="./resources/icons/home-icon.png">
+        </a>
+      </div>
+    </div>
+
+    <div class="side-to-side">
+
+      <img id ='SMART' src = "./resources/SMART Goals.png" >
+      <!--sign in form-->
+      <div id="sign-in-form-box">
+        <h1>Sign in</h1>
+        <p>Please enter your username and password to sign in.</p>
+        
+        <form id = 'loginForm'>
+          <input type="text" class = 'inputfield' id='username' placeholder="Username" required>
+          <input type="password" class="inputfield" placeholder="Password" required>
+        </form>
+        <a href="./list.html"> <!-- I couldn't get this button to link to goalpage as a submit button so now it's not a submit button anymore but since we don't need functionality i think it's ok-->
+          <button class="submitButton">Let's go!</button>
+        </a>
+        <div class = 'tosignup'>
+          <p>Don't have an account yet?</p>
+          <a href="./sign-up.html" id = 'linkToSignUp'> 
+            Sign up here
+          </a>
+        </div>
+      </div>
+
+    </div>
+
+  </body> 
+</html>
