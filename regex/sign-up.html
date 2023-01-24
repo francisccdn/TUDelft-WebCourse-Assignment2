@@ -29,10 +29,10 @@
             <input type="text" class="soinputfield" placeholder="Name" pattern="^[A-Za-z]+$"> 
             <input type="text" class="soinputfield" placeholder="Address">
             <input type="text" class="soinputfield" placeholder="Country" required>
-            <input type="text" class="soinputfield" placeholder="ZIP code" >
-            <input type="text" class="soinputfield" placeholder="Email" >
-            <input type="text" class="soinputfield" placeholder="Sex" >
-            <input type="text" class="soinputfield" placeholder="Language" >
+            <input type="text" class="soinputfield" placeholder="ZIP code" pattern="^\d{4}[a-zA-Z]{2}$">
+            <input type="text" class="soinputfield" placeholder="Email" required pattern="^\S+@\S+\.\S+$">
+            <input type="text" class="soinputfield" placeholder="Sex" required>
+            <input type="text" class="soinputfield" placeholder="Language" required>
             <input type="text" class="soinputfield" placeholder="Bio">
             <input type="text" class="soinputfield" placeholder="Reason of use">
             <input type="text" class="soinputfield" placeholder="A fun joke">
