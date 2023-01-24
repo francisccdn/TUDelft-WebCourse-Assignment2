@@ -2,6 +2,8 @@ const VALID_INPUT = "valid";
 const validInputMsg = "Looks good!";
 
 const alphabet = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRTUVWXYZ";
+const numbers = "0123456789";
+const symbols = "!@#$%^&*";
 
 const formEl = document.getElementById("signupform")
 const inputFieldsParentEl = document.getElementById("sign-up-inputs")
@@ -32,8 +34,68 @@ const fieldRules = {
 
         return VALID_INPUT;
     },
-    "Password" : (value) => {return VALID_INPUT;}, // TODO
-    "Name" : (value) => {return VALID_INPUT;}, // TODO
+    "Password" : (value) => {
+        var validInputMsgPassword = "Looks good!";
+
+        if (value == "" || value == null) {
+            return "Please input a password";
+        }
+
+        if (value.length < 12) {
+            return "Password must be at least 12 characters";
+        }
+
+        for (let i=0; i<value.length; i++){
+            if(alphabet.includes(value[i])){
+                break;
+            }
+
+            if(i==value.length-1){
+                return "Password must contain at least one uppercase and at least one lowercase letter"
+            }
+        }
+
+        for (let i=0; i<value.length; i++){
+            if(numbers.includes(value[i])){
+                break;
+            }
+
+            if(i==value.length-1){
+                return "Password must contain at least one number"
+            }
+        }
+
+        for (let i=0; i<value.length; i++){
+            if(symbols.includes(value[i])){
+                break;
+            }
+
+            if(i==value.length-1){
+                return "Password must contain at least one special symbol (!@#$%^&*)"
+            }
+
+            if(value.length < 14){
+                validInputMsgPassword = "This is ok, but a password of more than 14 characters is stronger!";
+            } //TODO doesntwooork. 
+        }
+
+        
+        return VALID_INPUT;
+    },
+
+    "Name" : (value) => {
+        if (value == "" || value == null) {
+            return "Please input a name";
+        }
+
+        for (let i=0; i<value.length; i++){
+            if(!alphabet.includes(value[i])){
+                return "Name can only contain letters"
+            }
+        }
+
+        return VALID_INPUT;
+    }, 
     "Address" : (value) => {return VALID_INPUT;},
     "Country" : (value) => (value) => {
         if (value == "" || value == null) {
@@ -44,7 +106,7 @@ const fieldRules = {
     },
     "ZIP code" : (value) => {
         if (value == "" || value == null) {
-            return VALID_INPUT;
+            return "Please enter a ZIP code";
         }
 
         if (value.length != 6) {
@@ -68,7 +130,30 @@ const fieldRules = {
     
         return VALID_INPUT;
     },
-    "Email" : (value) => {return VALID_INPUT;}, // TODO
+    "Email" : (value) => {
+        if (value == "" || value == null) {
+            return "Please input an email address";
+        }
+
+        if(!(value.includes('@'))){
+            return "Please enter a valid email address"
+        }
+
+        if(!(value.includes('.com') || value.includes('.nl') || value.includes('.org') || value.includes('.net') || value.includes('.in') || value.includes('.us') || value.includes('.info'))){
+            return "Please enter a valid email address"
+        } //not complete but for our users will probably be fine
+
+        const arr = value.split('@');
+        if(arr[0] == '' || arr[1] == '' || arr[1].split('.')[0] == ''){
+            return "Please enter a valid email address"
+        } //checking that there is something before and after the @ and period
+
+        if(value[0] == '.' || value.includes('..')){
+            return "Please enter a valid email address"
+        } //checking that the first char is not a period and that there are no double periods
+
+        return VALID_INPUT;
+    },
     "Sex" : (value) => {
         if (value == "" || value == null) {
             return "This is a required field";
@@ -100,6 +185,11 @@ formEl.addEventListener("submit", (e) => {
         
         const valueCheck = fieldRules[fieldName];
         const check = valueCheck(field.value);
+
+        if(check == VALID_INPUT && fieldName =='Password'){ //TODO all i have created now is a bug
+            msgEl.innerHTML = validInputMsgPassword;
+            msgEl.style = "color: orange;";
+        }
         if (check == VALID_INPUT) {
             msgEl.innerHTML = validInputMsg;
             msgEl.style = "color: green;";
