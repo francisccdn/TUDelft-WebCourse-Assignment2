@@ -1,7 +1,9 @@
 const VALID_INPUT = "valid";
 const validInputMsg = "Looks good!";
 
-const alphabet = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRTUVWXYZ";
+const alphabet = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+const lowercase = "abcdefghijklmnopqrstuvwxyz";
+const uppercase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 const numbers = "0123456789";
 const symbols = "!@#$%^&*";
 
@@ -35,8 +37,6 @@ const fieldRules = {
         return VALID_INPUT;
     },
     "Password" : (value) => {
-        var validInputMsgPassword = "Looks good!";
-
         if (value == "" || value == null) {
             return "Please input a password";
         }
@@ -46,12 +46,22 @@ const fieldRules = {
         }
 
         for (let i=0; i<value.length; i++){
-            if(alphabet.includes(value[i])){
+            if(lowercase.includes(value[i])){
                 break;
             }
 
             if(i==value.length-1){
-                return "Password must contain at least one uppercase and at least one lowercase letter"
+                return "Password must contain at least lowercase letter"
+            }
+        }
+
+        for (let i=0; i<value.length; i++){
+            if(uppercase.includes(value[i])){
+                break;
+            }
+
+            if(i==value.length-1){
+                return "Password must contain at least uppercase letter"
             }
         }
 
@@ -73,12 +83,7 @@ const fieldRules = {
             if(i==value.length-1){
                 return "Password must contain at least one special symbol (!@#$%^&*)"
             }
-
-            if(value.length < 14){
-                validInputMsgPassword = "This is ok, but a password of more than 14 characters is stronger!";
-            } //TODO doesntwooork. 
         }
-
         
         return VALID_INPUT;
     },
@@ -96,8 +101,8 @@ const fieldRules = {
 
         return VALID_INPUT;
     }, 
-    "Address" : (value) => {return VALID_INPUT;},
-    "Country" : (value) => (value) => {
+    "Address" : () => {return VALID_INPUT;},
+    "Country" : (value) => {
         if (value == "" || value == null) {
             return "This is a required field";
         }
@@ -161,7 +166,7 @@ const fieldRules = {
 
         return VALID_INPUT;
     },
-    "Language" : (value) => (value) => {
+    "Language" : (value) => {
         if (value == "" || value == null) {
             return "This is a required field";
         }
@@ -186,10 +191,6 @@ formEl.addEventListener("submit", (e) => {
         const valueCheck = fieldRules[fieldName];
         const check = valueCheck(field.value);
 
-        if(check == VALID_INPUT && fieldName =='Password'){ //TODO all i have created now is a bug
-            msgEl.innerHTML = validInputMsgPassword;
-            msgEl.style = "color: orange;";
-        }
         if (check == VALID_INPUT) {
             msgEl.innerHTML = validInputMsg;
             msgEl.style = "color: green;";

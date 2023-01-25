@@ -25,7 +25,7 @@
         <form id="signupform" action="./index.html">
           <div id="sign-up-fields">
             <input type="text" class="soinputfield" placeholder="Username" required pattern="(?=.{3,16}$)^[A-Z].*(\d$)|(?=.{3,16}$)^[A-Z].*[!@#\$%\^&\*\.]$"> <!--TODO this can be shorter, regex doesn't check for required -->
-            <input type="password" class="soinputfield" placeholder="Password" required pattern="^(?=.{0,12}$)(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[!@#\$%\^&*]).*">
+            <input type="password" class="soinputfield" placeholder="Password" required pattern="^(?=.{12,}$)(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[!@#\$%\^&*]).*">
             <input type="text" class="soinputfield" placeholder="Name" pattern="^[A-Za-z]+$"> 
             <input type="text" class="soinputfield" placeholder="Address">
             <input type="text" class="soinputfield" placeholder="Country" required>
